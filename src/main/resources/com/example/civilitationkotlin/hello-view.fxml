@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+
+<BorderPane prefHeight="546.0" prefWidth="785.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.civilitationkotlin.MapaController">
+   <right>
+      <Label fx:id="posi" alignment="CENTER" contentDisplay="CENTER" BorderPane.alignment="CENTER_RIGHT" />
+   </right>
+   <top>
+      <Button fx:id="res" alignment="CENTER_RIGHT" focusTraversable="false" mnemonicParsing="false" onMouseClicked="#clickDeRestauracion" text="Centrar mapa" BorderPane.alignment="BOTTOM_CENTER" />
+   </top>
+   <center>
+      <GridPane fx:id="map" alignment="CENTER" prefHeight="419.0" prefWidth="785.0" BorderPane.alignment="CENTER" />
+   </center>
+   <bottom>
+      <Label fx:id="psiciones" alignment="CENTER" text="no funciona" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>

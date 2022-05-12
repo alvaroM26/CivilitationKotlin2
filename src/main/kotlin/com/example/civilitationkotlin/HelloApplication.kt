@@ -11,7 +11,7 @@ class HelloApplication : Application() {
     override fun start(stage: Stage) {
 
         val fxmlLoader = FXMLLoader(HelloApplication::class.java.getResource("hello-view.fxml"))
-        val scene = Scene(fxmlLoader.load(), 800.0, 750.0)
+        val scene = Scene(fxmlLoader.load(), 785.0, 546.0)
         stage.title = "Civilitation"
         stage.scene = scene
         stage.show()

@@ -1,8 +1,6 @@
 package com.example.civilitationkotlin
 
-import java.text.NumberFormat.Style
-
-data class Terreno(val nombre : String, val imagen : String, val sePuedeAndarSobreEl : Boolean, val fondoPaisaje : String) {
+data class Terreno(val nombre: String, val imagen: String, val sePuedeAndarSobreEl: Boolean, val fondoPaisaje: String, var estado: String = "") {
 
     companion object {
         fun crearLLanura(): Terreno {

@@ -19,6 +19,8 @@ class MapaController {
     private lateinit var posi: Label
     @FXML
     private lateinit var psiciones: Label
+    @FXML
+    private lateinit var estado: Label
 
     lateinit var map : GridPane
 
@@ -116,13 +118,15 @@ class MapaController {
 
     fun abrirVentanaDetails(terreno: Terreno){
         val stage = Stage()
-        val loader = FXMLLoader(javaClass.getResource("Details.fxml"))
+        val loader = FXMLLoader(javaClass.getResource("details.fxml"))
         val root = loader.load<AnchorPane>()
-        val scene = Scene(root,493.0,211.0)
+        val scene = Scene(root,720.0,462.0)
         stage.scene = scene
         stage.show()
         val detailsController = loader.getController<DetailsController>()
         detailsController.enviarTerreno(terreno)
+        detailsController.comprobacionDeEstado()
+        detailsController.enviarDatos(this)
     }
 
 }

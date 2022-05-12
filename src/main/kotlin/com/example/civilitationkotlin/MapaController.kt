@@ -126,6 +126,7 @@ class MapaController {
         val detailsController = loader.getController<DetailsController>()
         detailsController.enviarTerreno(terreno)
         detailsController.comprobacionDeEstado()
+        detailsController.imagenesOcultas()
         detailsController.enviarDatos(this)
     }
 

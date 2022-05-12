@@ -30,14 +30,25 @@ class DetailsController {
     private lateinit var bt3: Button
     @FXML
     private lateinit var bt4: Button
-
+    @FXML
+    private lateinit var imgSaquear: ImageView
+    @FXML
+    private lateinit var imgConquistar: ImageView
+    @FXML
+    private lateinit var imgMina: ImageView
+    @FXML
+    private lateinit var imgGranja: ImageView
+    @FXML
+    private lateinit var estado: Label
 
     fun enviarTerreno(terreno: Terreno) {
+
+        this.terreno = terreno
 
         nombre.text = "El terreno seleccionado es: "+ terreno.nombre
         andar.text = terreno.sePuedeAndarSobreEl.toString()
         fondo.style = terreno.fondoPaisaje
-        this.terreno = terreno
+        estado.text = "El estado del lugar es "+ terreno.estado
 
         val f = File(terreno.imagen)
         imagen.image = Image(f.toURI().toURL().toString())
@@ -100,25 +111,59 @@ class DetailsController {
     }
     @FXML
     fun cambiarEstado1() {
-
         terreno?.estado = "Saqueado"
-
+        imgSaquear.isVisible = true
+        imgConquistar.isVisible= false
+        imgMina.isVisible = false
+        imgGranja.isVisible = false
     }
     @FXML
     fun cambiarEstado2() {
         terreno?.estado = "Conquistado"
+        imgConquistar.isVisible=true
+        imgSaquear.isVisible = false
+        imgMina.isVisible = false
+        imgGranja.isVisible = false
     }
     @FXML
     fun cambiarEstado3() {
         terreno?.estado = "Con Mina"
+        imgConquistar.isVisible=false
+        imgSaquear.isVisible = false
+        imgMina.isVisible = true
+        imgGranja.isVisible = false
     }
     @FXML
     fun cambiarEstado4() {
         terreno?.estado = "Con Granja"
+        imgConquistar.isVisible=false
+        imgSaquear.isVisible = false
+        imgMina.isVisible = false
+        imgGranja.isVisible = true
     }
 
     fun enviarDatos(mapaController: MapaController){
         this.mapaController=mapaController
+    }
+
+    fun imagenesOcultas(){
+
+        val f = File("src\\main\\resources\\images\\ic_corona.png")
+        imgConquistar.image = Image(f.toURI().toURL().toString())
+        imgConquistar.isVisible=false
+
+        val f2 = File("src\\main\\resources\\images\\ic_granja.png")
+        imgGranja.image = Image(f2.toURI().toURL().toString())
+        imgGranja.isVisible = false
+
+        val f3= File("src\\main\\resources\\images\\ic_mina.png")
+        imgMina.image = Image(f3.toURI().toURL().toString())
+        imgMina.isVisible = false
+
+        val f4 = File("src\\main\\resources\\images\\ic_saqueo.png")
+        imgSaquear.image = Image(f4.toURI().toURL().toString())
+        imgSaquear.isVisible = false
+
     }
 
 }

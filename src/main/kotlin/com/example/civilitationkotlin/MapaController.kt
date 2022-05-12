@@ -1,13 +1,16 @@
 package com.example.civilitationkotlin
 
 import javafx.fxml.FXML
-import javafx.scene.control.Button
+import javafx.fxml.FXMLLoader
+import javafx.scene.Scene
 import javafx.scene.control.Label
 import javafx.scene.image.Image
 import javafx.scene.image.ImageView
 import javafx.scene.input.MouseEvent
+import javafx.scene.layout.AnchorPane
 import javafx.scene.layout.GridPane
 import javafx.scene.layout.VBox
+import javafx.stage.Stage
 import java.io.File
 
 class MapaController {
@@ -59,7 +62,8 @@ class MapaController {
                 val f = File(terreno2.imagen)
 
                 view.setOnMouseClicked {
-                    posi.text = "El terreno seleccionado es "+terreno2.nombre
+                    posi.text = "El terreno es "+terreno2.nombre
+                    abrirVentanaDetails(terreno2)
                 }
 
                 view.style = terreno2.fondoPaisaje
@@ -108,6 +112,17 @@ class MapaController {
 
     fun mostrarPosiconActual() {
         psiciones.text = "Posicion actual ( "+ mapa.obtenerColumnaActual() + "," +mapa.obtenerFilaActual() + ")"
+    }
+
+    fun abrirVentanaDetails(terreno: Terreno){
+        val stage = Stage()
+        val loader = FXMLLoader(javaClass.getResource("Details.fxml"))
+        val root = loader.load<AnchorPane>()
+        val scene = Scene(root,493.0,211.0)
+        stage.scene = scene
+        stage.show()
+        val detailsController = loader.getController<DetailsController>()
+        detailsController.enviarTerreno(terreno)
     }
 
 }

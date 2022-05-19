@@ -33,6 +33,7 @@ class HelloApplication : Application() {
                     mapController.moverDerecha()
                 }
 
+                else -> {}
             }
         }
 

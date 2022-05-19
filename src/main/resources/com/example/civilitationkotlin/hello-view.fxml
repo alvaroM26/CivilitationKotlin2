@@ -19,12 +19,10 @@
          </rowConstraints></GridPane>
    </center>
    <right>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <Label fx:id="psiciones" alignment="CENTER" contentDisplay="CENTER" layoutX="2.0" layoutY="269.0" prefHeight="17.0" prefWidth="197.0" textAlignment="CENTER" />
-            <Label fx:id="posi" alignment="CENTER" contentDisplay="CENTER" layoutX="3.0" layoutY="333.0" prefHeight="17.0" prefWidth="195.0" textAlignment="CENTER" />
-            <Button fx:id="res" alignment="CENTER_RIGHT" focusTraversable="false" layoutX="49.0" layoutY="196.0" mnemonicParsing="false" onMouseClicked="#clickDeRestauracion" text="Centrar mapa" />
-         </children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #b0fe99;" BorderPane.alignment="CENTER">
+         <Label fx:id="psiciones" alignment="CENTER" contentDisplay="CENTER" layoutX="2.0" layoutY="269.0" prefHeight="17.0" prefWidth="197.0" textAlignment="CENTER" />
+         <Label fx:id="posi" alignment="CENTER" contentDisplay="CENTER" layoutX="3.0" layoutY="333.0" prefHeight="17.0" prefWidth="195.0" textAlignment="CENTER" />
+         <Button fx:id="res" alignment="CENTER_RIGHT" focusTraversable="false" layoutX="49.0" layoutY="196.0" mnemonicParsing="false" onMouseClicked="#clickDeRestauracion" text="Centrar mapa" />
       </AnchorPane>
    </right>
 </BorderPane>

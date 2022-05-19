@@ -20,8 +20,6 @@ class MapaController {
     private lateinit var posi: Label
     @FXML
     private lateinit var psiciones: Label
-    @FXML
-    private lateinit var nuevoTerreno: Label
 
     lateinit var map : GridPane
 
@@ -99,7 +97,6 @@ class MapaController {
         mapa.moverArriba()
         rellenarGirdPane(mapa.obtenerMapaPorPosiciones())
         mostrarPosiconActual()
-
     }
     fun moverAbajo(){
         println("Abajo")
@@ -131,7 +128,6 @@ class MapaController {
 
     fun reconstruir(){
         rellenarGirdPane(subMapa)
-
     }
 
     fun abrirVentanaDetails(terreno: Terreno){

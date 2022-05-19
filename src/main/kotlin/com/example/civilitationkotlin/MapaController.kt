@@ -2,6 +2,7 @@ package com.example.civilitationkotlin
 
 import javafx.fxml.FXML
 import javafx.fxml.FXMLLoader
+import javafx.geometry.Pos
 import javafx.scene.Scene
 import javafx.scene.control.Label
 import javafx.scene.image.Image
@@ -20,7 +21,7 @@ class MapaController {
     @FXML
     private lateinit var psiciones: Label
     @FXML
-    private lateinit var estado: Label
+    private lateinit var nuevoTerreno: Label
 
     lateinit var map : GridPane
 
@@ -40,7 +41,7 @@ class MapaController {
 
                 val vBox = VBox()
                 vBox.children.add(0, ImageView())
-
+                vBox.children.add(1,Label())
                 map.add(vBox, columna, fila)
 
             }
@@ -62,6 +63,12 @@ class MapaController {
 
                 val imageView = view.children[0] as ImageView
                 val f = File(terreno2.imagen)
+
+                val nombre = view.children[1] as Label
+                nombre.text = terreno2.nombre
+                nombre.maxWidth = 80.0
+                nombre.style = terreno2.fondoPaisaje
+                nombre.alignment = Pos.CENTER
 
                 view.setOnMouseClicked {
                     posi.text = "El terreno es "+terreno2.nombre
@@ -114,6 +121,10 @@ class MapaController {
 
     fun mostrarPosiconActual() {
         psiciones.text = "Posicion actual ( "+ mapa.obtenerColumnaActual() + "," +mapa.obtenerFilaActual() + ")"
+    }
+
+    fun reconstruir(){
+        rellenarGirdPane(subMapa)
     }
 
     fun abrirVentanaDetails(terreno: Terreno){

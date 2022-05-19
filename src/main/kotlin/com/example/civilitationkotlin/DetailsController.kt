@@ -5,7 +5,6 @@ import javafx.scene.control.Button
 import javafx.scene.control.Label
 import javafx.scene.image.Image
 import javafx.scene.image.ImageView
-import javafx.scene.input.MouseEvent
 import javafx.scene.layout.AnchorPane
 import java.io.File
 
@@ -46,9 +45,8 @@ class DetailsController {
         this.terreno = terreno
 
         nombre.text = "El terreno seleccionado es: "+ terreno.nombre
-        andar.text = terreno.sePuedeAndarSobreEl.toString()
+        andar.text = "¿El terreno puede ser transitable? " + terreno.sePuedeAndarSobreEl.toString()
         fondo.style = terreno.fondoPaisaje
-        estado.text = "El estado del lugar es "+ terreno.estado
 
         val f = File(terreno.imagen)
         imagen.image = Image(f.toURI().toURL().toString())
@@ -112,6 +110,8 @@ class DetailsController {
     @FXML
     fun cambiarEstado1() {
         terreno?.estado = "Saqueado"
+        estado.text = "El estado del lugar es "+ terreno?.estado
+        mapaController.reconstruir()
         imgSaquear.isVisible = true
         imgConquistar.isVisible= false
         imgMina.isVisible = false
@@ -120,6 +120,8 @@ class DetailsController {
     @FXML
     fun cambiarEstado2() {
         terreno?.estado = "Conquistado"
+        estado.text = "El estado del lugar es "+ terreno?.estado
+        mapaController.reconstruir()
         imgConquistar.isVisible=true
         imgSaquear.isVisible = false
         imgMina.isVisible = false
@@ -128,6 +130,8 @@ class DetailsController {
     @FXML
     fun cambiarEstado3() {
         terreno?.estado = "Con Mina"
+        estado.text = "El estado del lugar es "+ terreno?.estado
+        mapaController.reconstruir()
         imgConquistar.isVisible=false
         imgSaquear.isVisible = false
         imgMina.isVisible = true
@@ -136,6 +140,8 @@ class DetailsController {
     @FXML
     fun cambiarEstado4() {
         terreno?.estado = "Con Granja"
+        estado.text = "El estado del lugar es "+ terreno?.estado
+        mapaController.reconstruir()
         imgConquistar.isVisible=false
         imgSaquear.isVisible = false
         imgMina.isVisible = false

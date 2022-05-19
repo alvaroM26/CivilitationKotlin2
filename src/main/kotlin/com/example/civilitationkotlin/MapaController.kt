@@ -41,7 +41,7 @@ class MapaController {
 
                 val vBox = VBox()
                 vBox.children.add(0, ImageView())
-                vBox.children.add(1,Label())
+                vBox.children.add(1, Label())
                 map.add(vBox, columna, fila)
 
             }
@@ -65,7 +65,13 @@ class MapaController {
                 val f = File(terreno2.imagen)
 
                 val nombre = view.children[1] as Label
-                nombre.text = terreno2.nombre
+
+                if (terreno2.estado != ""){
+                    nombre.text = terreno2.estado
+                }else{
+                    nombre.text = terreno2.nombre
+                }
+
                 nombre.maxWidth = 80.0
                 nombre.style = terreno2.fondoPaisaje
                 nombre.alignment = Pos.CENTER
@@ -125,6 +131,7 @@ class MapaController {
 
     fun reconstruir(){
         rellenarGirdPane(subMapa)
+
     }
 
     fun abrirVentanaDetails(terreno: Terreno){

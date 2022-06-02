@@ -59,16 +59,16 @@ class MapaController {
                 val view = map.children[posicion]
 
                 view as VBox
-                var f = File("")
+                var f2 = File("")
 
                 val imageView = view.children[0] as ImageView
-                f = File(terreno2.imagen)
+                val f = File(terreno2.imagen)
 
                 val nombre = view.children[1] as Label
 
                 val imageView2 = view.children[2] as ImageView
                 terreno2.unidad?.let {
-                    f = File(it.imagen)
+                    f2 = File(it.imagen)
                 }
 
                 if (terreno2.estado != ""){
@@ -87,6 +87,10 @@ class MapaController {
                 }
 
                 view.style = terreno2.fondoPaisaje
+
+                imageView2.fitHeight = 30.0
+                imageView2.fitWidth = 30.0
+                imageView2.image = Image(f2.toURI().toURL().toString())
 
                 imageView.fitHeight = 50.0
                 imageView.fitWidth = 50.0

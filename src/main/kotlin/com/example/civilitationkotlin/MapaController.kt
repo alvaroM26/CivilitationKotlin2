@@ -39,8 +39,8 @@ class MapaController {
 
                 val vBox = VBox()
                 vBox.children.add(0, ImageView())
-                vBox.children.add(1, Label())
-                vBox.children.add(2, ImageView())
+                vBox.children.add(1, ImageView())
+                vBox.children.add(2, Label())
                 map.add(vBox, columna, fila)
 
             }
@@ -61,12 +61,12 @@ class MapaController {
                 view as VBox
                 var f2 = File("")
 
-                val imageView = view.children[0] as ImageView
+                val imageView = view.children[1] as ImageView
                 val f = File(terreno2.imagen)
 
-                val nombre = view.children[1] as Label
+                val nombre = view.children[2] as Label
 
-                val imageView2 = view.children[2] as ImageView
+                val imageView2 = view.children[0] as ImageView
                 terreno2.unidad?.let {
                     f2 = File(it.imagen)
                 }
@@ -90,10 +90,12 @@ class MapaController {
 
                 imageView2.fitHeight = 30.0
                 imageView2.fitWidth = 30.0
+                imageView2.layoutY = 0.0
+                imageView2.layoutX = 50.0
                 imageView2.image = Image(f2.toURI().toURL().toString())
 
-                imageView.fitHeight = 50.0
-                imageView.fitWidth = 50.0
+                imageView.fitHeight = 80.0
+                imageView.fitWidth = 80.0
                 imageView.image = Image(f.toURI().toURL().toString())
 
                 posicion++

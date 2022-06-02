@@ -12,6 +12,7 @@ import javafx.scene.layout.GridPane
 import javafx.scene.layout.VBox
 import javafx.stage.Stage
 import java.io.File
+import kotlin.random.Random
 
 class MapaController {
 
@@ -39,6 +40,7 @@ class MapaController {
                 val vBox = VBox()
                 vBox.children.add(0, ImageView())
                 vBox.children.add(1, Label())
+                vBox.children.add(2, ImageView())
                 map.add(vBox, columna, fila)
 
             }
@@ -57,11 +59,17 @@ class MapaController {
                 val view = map.children[posicion]
 
                 view as VBox
+                var f = File("")
 
                 val imageView = view.children[0] as ImageView
-                val f = File(terreno2.imagen)
+                f = File(terreno2.imagen)
 
                 val nombre = view.children[1] as Label
+
+                val imageView2 = view.children[2] as ImageView
+                terreno2.unidad?.let {
+                    f = File(it.imagen)
+                }
 
                 if (terreno2.estado != ""){
                     nombre.text = terreno2.estado

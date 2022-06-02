@@ -1,10 +1,12 @@
 package com.example.civilitationkotlin
 
-data class Terreno(val nombre: String, val imagen: String, val sePuedeAndarSobreEl: Boolean, val fondoPaisaje: String, var estado: String = "") {
+import java.io.File
+
+data class Terreno(val nombre: String, val imagen: String, val sePuedeAndarSobreEl: Boolean, val fondoPaisaje: String, var estado: String = "", var unidad : Unidad? = null) {
 
     companion object {
         fun crearLLanura(): Terreno {
-            return Terreno("Llanura", "src\\main\\resources\\images\\llanura.png", true, "-fx-background-color: #00D0FE;" )
+            return Terreno("Llanura", "src\\main\\resources\\images\\llanura.png", true, "-fx-background-color: #00D0FE;")
         }
 
         fun crearColina(): Terreno {

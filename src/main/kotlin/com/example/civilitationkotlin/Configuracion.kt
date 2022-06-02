@@ -5,7 +5,7 @@ class Configuracion {
         const val vision = 2
         const val columnasCampoVision = vision * 2 + 1
         const val filasCampoVision = vision * 2 + 1
-        const val columnasMapa = 100
-        const val filasMapa = 100
+        const val columnasMapa = 50
+        const val filasMapa = 50
     }
 }

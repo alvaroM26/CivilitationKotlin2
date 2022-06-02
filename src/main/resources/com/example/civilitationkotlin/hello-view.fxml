@@ -13,8 +13,12 @@
       <GridPane fx:id="map" alignment="CENTER" prefHeight="419.0" prefWidth="785.0" BorderPane.alignment="CENTER">
          <columnConstraints>
             <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
          </columnConstraints>
          <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
             <RowConstraints />
          </rowConstraints></GridPane>
    </center>

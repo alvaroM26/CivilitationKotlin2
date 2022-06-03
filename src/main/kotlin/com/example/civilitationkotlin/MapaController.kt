@@ -90,8 +90,6 @@ class MapaController {
 
                 imageView2.fitHeight = 30.0
                 imageView2.fitWidth = 30.0
-                imageView2.layoutY = 0.0
-                imageView2.layoutX = 50.0
                 imageView2.image = Image(f2.toURI().toURL().toString())
 
                 imageView.fitHeight = 80.0

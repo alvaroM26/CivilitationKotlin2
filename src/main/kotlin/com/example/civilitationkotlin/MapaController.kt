@@ -37,7 +37,7 @@ class MapaController {
 
             for (fila in 0 until Configuracion.filasCampoVision) {
 
-                val vBox = VBox()
+                val vBox = AnchorPane()
                 vBox.children.add(0, ImageView())
                 vBox.children.add(1, ImageView())
                 vBox.children.add(2, Label())
@@ -58,15 +58,15 @@ class MapaController {
 
                 val view = map.children[posicion]
 
-                view as VBox
+                view as AnchorPane
                 var f2 = File("")
 
-                val imageView = view.children[1] as ImageView
+                val imageView = view.children[0] as ImageView
                 val f = File(terreno2.imagen)
 
                 val nombre = view.children[2] as Label
 
-                val imageView2 = view.children[0] as ImageView
+                val imageView2 = view.children[1] as ImageView
                 terreno2.unidad?.let {
                     f2 = File(it.imagen)
                 }
@@ -77,9 +77,12 @@ class MapaController {
                     nombre.text = terreno2.nombre
                 }
 
-                nombre.maxWidth = 80.0
-                nombre.style = terreno2.fondoPaisaje
+                nombre.layoutX= 0.0
+                nombre.layoutY = 80.0
+                nombre.minHeight = 50.0
+                nombre.minWidth = 60.0
                 nombre.alignment = Pos.CENTER
+                nombre.style = terreno2.fondoPaisaje
 
                 view.setOnMouseClicked {
                     posi.text = "El terreno es "+terreno2.nombre
@@ -88,12 +91,16 @@ class MapaController {
 
                 view.style = terreno2.fondoPaisaje
 
-                imageView2.fitHeight = 30.0
-                imageView2.fitWidth = 30.0
+                imageView2.layoutX = 5.0
+                imageView2.layoutY = 5.0
+                imageView2.fitHeight = 25.0
+                imageView2.fitWidth = 25.0
                 imageView2.image = Image(f2.toURI().toURL().toString())
 
-                imageView.fitHeight = 80.0
-                imageView.fitWidth = 80.0
+                imageView.layoutX = 5.0
+                imageView.layoutY = 30.0
+                imageView.fitHeight = 50.0
+                imageView.fitWidth =60.0
                 imageView.image = Image(f.toURI().toURL().toString())
 
                 posicion++

@@ -79,8 +79,8 @@ class MapaController {
 
                 nombre.layoutX= 0.0
                 nombre.layoutY = 80.0
-                nombre.minHeight = 50.0
-                nombre.minWidth = 60.0
+                nombre.minHeight = 20.0
+                nombre.minWidth = 120.0
                 nombre.alignment = Pos.CENTER
                 nombre.style = terreno2.fondoPaisaje
 
@@ -89,7 +89,11 @@ class MapaController {
                     abrirVentanaDetails(terreno2)
                 }
 
-                view.style = terreno2.fondoPaisaje
+                if (terreno2.unidad?.seleccionada == true){
+                    view.style = terreno2.fondoEscogido
+                }else{
+                    view.style = terreno2.fondoPaisaje
+                }
 
                 imageView2.layoutX = 5.0
                 imageView2.layoutY = 5.0
@@ -97,20 +101,73 @@ class MapaController {
                 imageView2.fitWidth = 25.0
                 imageView2.image = Image(f2.toURI().toURL().toString())
 
-                imageView.layoutX = 5.0
+                imageView.layoutX = 25.0
                 imageView.layoutY = 30.0
                 imageView.fitHeight = 50.0
                 imageView.fitWidth =60.0
                 imageView.image = Image(f.toURI().toURL().toString())
 
                 posicion++
+
             }
 
             mostrarPosiconActual()
         }
     }
 
+    fun moverPersonaje(terreno: Terreno){
+
+        if (terreno.unidad?.seleccionada == true){
+            mapa.moverArriba()
+            mapa.moverAbajo()
+            mapa.moverDerecha()
+            mapa.moverIzquierda()
+        }else{
+            moverArriba()
+            moverAbajo()
+            moverDerecha()
+            moverIzquierda()
+        }
+    }
+
+    fun mirarSiAbajoEsTransitable(terreno: Terreno){
+
+        if (!terreno.sePuedeAndarSobreEl){
+            //alerta
+        }else{
+            mapa.moverAbajo()
+        }
+    }
+
+    fun mirarSiArribaEsTransitable(terreno: Terreno){
+
+        if (!terreno.sePuedeAndarSobreEl){
+            //alerta
+        }else{
+            mapa.moverArriba()
+        }
+    }
+
+    fun mirarSiDerechaEsTransitable(terreno: Terreno){
+
+        if (!terreno.sePuedeAndarSobreEl){
+            //alerta
+        }else{
+            mapa.moverDerecha()
+        }
+    }
+
+    fun mirarSiIzquierdaEsTransitable(terreno: Terreno){
+
+        if (!terreno.sePuedeAndarSobreEl){
+            //alerta
+        }else{
+            mapa.moverIzquierda()
+        }
+    }
+
     fun moverArriba() {
+
         println("Arriba")
         mapa.moverArriba()
         rellenarGirdPane(mapa.obtenerMapaPorPosiciones())

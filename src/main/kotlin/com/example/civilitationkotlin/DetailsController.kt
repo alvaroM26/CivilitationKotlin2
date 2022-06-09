@@ -38,6 +38,9 @@ class DetailsController {
     private lateinit var bt4: Button
 
     @FXML
+    private lateinit var btCurar: Button
+
+    @FXML
     private lateinit var imgSaquear: ImageView
 
     @FXML
@@ -48,6 +51,9 @@ class DetailsController {
 
     @FXML
     private lateinit var imgGranja: ImageView
+
+    @FXML
+    private lateinit var imaPerso: ImageView
 
     @FXML
     private lateinit var estado: Label
@@ -62,6 +68,11 @@ class DetailsController {
 
         val f = File(terreno.imagen)
         imagen.image = Image(f.toURI().toURL().toString())
+
+        val f2 = File (terreno.unidad?.imagen)
+        imaPerso.image = Image(f2.toURI().toURL().toString())
+
+        btCurar.isVisible = terreno.unidad?.seleccionada == true
 
         comprobacionDeEstado()
 

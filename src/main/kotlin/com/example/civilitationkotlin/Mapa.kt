@@ -1,7 +1,6 @@
 package com.example.civilitationkotlin
 
 import kotlin.random.Random
-import kotlin.random.nextInt
 
 class Mapa {
 
@@ -9,7 +8,9 @@ class Mapa {
 
     private var posicionActual = PosicionActual(0, 0)
 
-    var matriz = MutableList(Configuracion.columnasMapa) {
+    private var escogido : Boolean = false
+
+    private var matriz = MutableList(Configuracion.columnasMapa) {
 
         MutableList(Configuracion.filasMapa) {
 
@@ -25,12 +26,14 @@ class Mapa {
                 }
 
             }
+
             if (terreno.sePuedeAndarSobreEl){
 
                 val unidadAleatorio = when(Random.nextInt(0,5)){
                     in 0..1 -> Unidad.crearCaballero()
                     in 2..3 -> Unidad.crearGuerrero()
                     in 4..5 -> Unidad.crearLancero()
+
                     else -> {
                         Unidad.crearVacio()
                     }
@@ -38,8 +41,16 @@ class Mapa {
 
                 terreno.unidad = unidadAleatorio
 
+                if (!escogido){
+                    terreno.unidad?.seleccionada = true
+                    escogido = true
+                    println(terreno.unidad)
+                }
+
             }
+
             terreno
+
         }
 
     }

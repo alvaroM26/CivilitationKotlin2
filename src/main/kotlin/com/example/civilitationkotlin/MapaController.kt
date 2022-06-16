@@ -179,10 +179,11 @@ class MapaController {
 
     fun mirarSiHayUnidad(terreno: Terreno){
 
-        if (terreno.unidad != null){
+        if (terreno.unidad != null && comprobarVentana){
             //batalla
         }else{
-            //moverse
+
+
         }
 
     }
@@ -233,6 +234,8 @@ class MapaController {
         rellenarGirdPane(subMapa)
     }
 
+    var comprobarVentana = false
+
     fun abrirVentanaDetails(terreno: Terreno){
         val stage = Stage()
         val loader = FXMLLoader(javaClass.getResource("details.fxml"))
@@ -240,6 +243,9 @@ class MapaController {
         val scene = Scene(root,720.0,462.0)
         stage.scene = scene
         stage.show()
+        if(stage.isShowing){
+            comprobarVentana = true
+        }
         val detailsController = loader.getController<DetailsController>()
         detailsController.enviarTerreno(terreno)
         detailsController.comprobacionDeEstado()

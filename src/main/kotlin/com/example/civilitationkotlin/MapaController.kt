@@ -1,18 +1,20 @@
 package com.example.civilitationkotlin
 
+import javafx.event.ActionEvent
 import javafx.fxml.FXML
 import javafx.fxml.FXMLLoader
 import javafx.geometry.Pos
 import javafx.scene.Scene
+import javafx.scene.control.Alert
 import javafx.scene.control.Label
 import javafx.scene.image.Image
 import javafx.scene.image.ImageView
 import javafx.scene.layout.AnchorPane
 import javafx.scene.layout.GridPane
-import javafx.scene.layout.VBox
 import javafx.stage.Stage
 import java.io.File
 import kotlin.random.Random
+import kotlin.random.nextInt
 
 class MapaController {
 
@@ -133,7 +135,7 @@ class MapaController {
     fun mirarSiAbajoEsTransitable(terreno: Terreno){
 
         if (!terreno.sePuedeAndarSobreEl){
-            //alerta
+            mostrarAlertInfo()
         }else{
             mapa.moverAbajo()
         }
@@ -142,7 +144,7 @@ class MapaController {
     fun mirarSiArribaEsTransitable(terreno: Terreno){
 
         if (!terreno.sePuedeAndarSobreEl){
-            //alerta
+            mostrarAlertInfo()
         }else{
             mapa.moverArriba()
         }
@@ -151,7 +153,7 @@ class MapaController {
     fun mirarSiDerechaEsTransitable(terreno: Terreno){
 
         if (!terreno.sePuedeAndarSobreEl){
-            //alerta
+            mostrarAlertInfo()
         }else{
             mapa.moverDerecha()
         }
@@ -160,14 +162,40 @@ class MapaController {
     fun mirarSiIzquierdaEsTransitable(terreno: Terreno){
 
         if (!terreno.sePuedeAndarSobreEl){
-            //alerta
+            mostrarAlertInfo()
         }else{
             mapa.moverIzquierda()
         }
     }
 
-    fun moverArriba() {
+    @FXML
+    fun mostrarAlertInfo() {
+        val alert = Alert(Alert.AlertType.INFORMATION)
+        alert.headerText = null
+        alert.title = "Informacion"
+        alert.contentText = "Terreno no transitable"
+        alert.showAndWait()
+    }
 
+    fun mirarSiHayUnidad(terreno: Terreno){
+
+        if (terreno.unidad != null){
+            //batalla
+        }else{
+            //moverse
+        }
+
+    }
+
+    fun realizarBatalla(unidad: Unidad){
+
+        val random = Random.nextInt(25,50)
+
+        unidad.vida = unidad.vida - random
+
+    }
+
+    fun moverArriba() {
         println("Arriba")
         mapa.moverArriba()
         rellenarGirdPane(mapa.obtenerMapaPorPosiciones())

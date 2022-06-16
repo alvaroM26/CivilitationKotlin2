@@ -1,6 +1,6 @@
 package com.example.civilitationkotlin
 
-data class Unidad(val nombre : String , val imagen: String, val vida: Int, var seleccionada : Boolean = false) {
+data class Unidad(val nombre : String , val imagen: String, var vida: Int, var seleccionada : Boolean = false) {
 
     companion object {
         fun crearCaballero(): Unidad {

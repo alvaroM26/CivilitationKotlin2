@@ -10,6 +10,7 @@ import java.io.File
 
 class DetailsController {
 
+    //LLAMAR A LA CLASE MAPACONTROLLER
     var mapaController = MapaController()
     var terreno: Terreno? = null
 

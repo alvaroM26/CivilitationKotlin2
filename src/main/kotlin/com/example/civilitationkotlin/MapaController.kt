@@ -25,6 +25,7 @@ class MapaController {
 
     lateinit var map : GridPane
 
+    //conectar con la clase MAPA
     var mapa = Mapa()
     var subMapa =  mapa.obtenerMapaPorPosiciones(2,5,Configuracion.vision)
 
@@ -69,10 +70,12 @@ class MapaController {
                 val nombre = view.children[2] as Label
 
                 val imageView2 = view.children[1] as ImageView
+                //FORMA DE RECORRER UN ATRIBUTO CUANDO ES NULO
                 terreno2.unidad?.let {
                     f2 = File(it.imagen)
                 }
 
+                //CAMBIAR EL NOMBRE DEL TEXTO DEPENDIENDO DEL ESTADO
                 if (terreno2.estado != ""){
                     nombre.text = terreno2.estado
                 }else{
@@ -86,6 +89,7 @@ class MapaController {
                 nombre.alignment = Pos.CENTER
                 nombre.style = terreno2.fondoPaisaje
 
+                //ABRIR UNA NUEVA VENTANA
                 view.setOnMouseClicked {
                     posi.text = "El terreno es "+terreno2.nombre
                     abrirVentanaDetails(terreno2)
@@ -168,6 +172,7 @@ class MapaController {
         }
     }
 
+    //CREAR UNA ALERTA
     @FXML
     fun mostrarAlertInfo() {
         val alert = Alert(Alert.AlertType.INFORMATION)
@@ -243,6 +248,7 @@ class MapaController {
         val scene = Scene(root,720.0,462.0)
         stage.scene = scene
         stage.show()
+        //COMPROBAR SI UNA VENTANA SE ENCUENTRA ABIERTA
         if(stage.isShowing){
             comprobarVentana = true
         }

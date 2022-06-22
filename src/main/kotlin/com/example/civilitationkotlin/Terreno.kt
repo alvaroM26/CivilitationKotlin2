@@ -1,7 +1,6 @@
 package com.example.civilitationkotlin
 
-import java.io.File
-
+//EL ATRIBUTO UNIDAD ESTA LLAMANDO A TODA LA CLASE UNIDAD (TODO SU CONTENIDO)
 data class Terreno(val nombre: String, val imagen: String, val sePuedeAndarSobreEl: Boolean, val fondoPaisaje: String,val fondoEscogido : String ,var estado: String = "", var unidad : Unidad? = null) {
 
     companion object {
